@@ -3,10 +3,13 @@ import os
 from dotenv import load_dotenv
 
 from propelauth_flask import init_auth, current_user
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
 from flask_socketio import SocketIO, emit
 
 from flask_cors import CORS
+
+import numpy as np
+import json
 
 import C1
 #
@@ -77,6 +80,23 @@ def comprehensiveindex():
 @app.route('/toggleindex')
 def togglestyles():
     return render_template('toggleindex.html')
+
+@app.route("/c1", methods=['POST'])
+def c1():
+    # res = C1.c1("test_images/cones.jpg")
+    # print(res)
+    print(request.files)
+    file = request.files['file']
+    # print(file)
+    filename = file.filename
+    # file.save(filename)
+
+    res = C1.c1("test_images/"+filename)
+
+
+    return res
+
+    # return {}
 
 
 @socketio.on('offer')

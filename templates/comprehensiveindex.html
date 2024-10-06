@@ -17,17 +17,140 @@
         <main>
             <div class="video-screen">
                 <!-- Placeholder for the 1280x720 video stream -->
-                <div class="video-placeholder">
-                    <p>Live Stream Will Appear Here</p>
-                </div>
+                <img id=image>
             </div>
+            <form id="uploadForm">
+                <input type="file" id="fileInput" name="file" required />
+                <button type="submit">Upload</button>
+            </form>
+            <br>
 
+                <table id="dataGrid">
+                    <thead>
+                        <tr>
+                            <th>Spot has car</th>
+                            <th>Car License</th>
+                            <th>Obstruction Found</th>
+                            <th>Obstructions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be filled by JavaScript -->
+                    </tbody>
+                </table>
+
+
+            <br>
             <div class="toggle-buttons">
                 <a href="/toggleindex" id="optimized-btn" class="btn">Optimized</a>
                 <button id="comprehensive-btn" class="btn active">Comprehensive</button>
             </div>
         </main>
     </div>
+    <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+    </style>
     <script src="static/togglescript.js"></script>
+    <script> 
+        function populateGrid(data) {
+            const tbody = document.getElementById('dataGrid').querySelector('tbody');
+            
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                
+                // Spot has car
+                const spotHasCar = item.license ? 'Yes' : 'No';
+                const spotCell = document.createElement('td');
+                spotCell.textContent = spotHasCar;
+                row.appendChild(spotCell);
+                
+                // Car License
+                const licenseCell = document.createElement('td');
+                licenseCell.textContent = item.license || 'N/A'; // Show 'N/A' if license is null
+                row.appendChild(licenseCell);
+                
+                // Obstruction Found
+                const obstructionFound = item.obstructions.length > 0 ? 'Yes' : 'No';
+                const obstructionCell = document.createElement('td');
+                obstructionCell.textContent = obstructionFound;
+                row.appendChild(obstructionCell);
+                
+                // Obstructions
+                const obstructionsCell = document.createElement('td');
+                obstructionsCell.textContent = item.obstructions.length > 0 ? item.obstructions.join(', ') : 'None';
+                row.appendChild(obstructionsCell);
+                
+                // Append the row to the tbody
+                tbody.appendChild(row);
+            });
+        }
+
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData();
+            const fileInput = document.getElementById('fileInput');
+            formData.append('file', fileInput.files[0]);
+
+            const reader = new FileReader();
+        
+            reader.onload = function(e) {
+                const imgElement = document.getElementById('image');
+                imgElement.src = e.target.result; // Set the image source to the file data
+                imgElement.style.display = 'block'; // Make the image visible
+            };
+            
+            reader.readAsDataURL(fileInput.files[0]); // Read the file as a Data URL
+
+
+            fetch('/c1', {  // Change here
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const jdata = JSON.stringify(data);
+                console.log(jdata)
+                populateGrid(jdata);
+            })
+            .catch(error => {
+                // document.getElementById('response').innerText = 'Error: ' + error.message;
+            });
+        });
+
+    </script>
+<style>
+.upload-container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+</style>
 </body>
 </html>
