@@ -15,7 +15,8 @@
             <p>Check out the recent detection of ISA signs in parking areas.</p>
         </header>
 
-        <main>
+        <!-- New container for the table and graph -->
+        <div class="dashboard-container">
             <div class="dashboard">
                 <div class="table-section">
                     <h2>Handicapped Parking Activity</h2>
@@ -28,7 +29,7 @@
                                 <th>Action Taken</th>
                             </tr>
                         </thead>
-                    <tbody>
+                        <tbody>
                             <tr>
                                 <td>2024-10-01</td>
                                 <td>Lot A - Downtown</td>
@@ -37,8 +38,8 @@
                             </tr>
                             <tr>
                                 <td>2024-09-25</td>
-                            <td>Lot B - Stadium</td>
-                            <td>3</td>
+                                <td>Lot B - Stadium</td>
+                                <td>3</td>
                                 <td>Pending</td>
                             </tr>
                             <tr>
@@ -47,17 +48,21 @@
                                 <td>7</td>
                                 <td>Confirmed</td>
                             </tr>
-                    </tbody>
+                        </tbody>
                     </table>
                 </div>
 
                 <div class="graph-section">
                     <h2>Parking Detection Trend</h2>
-                    <img src="static/graph.png" alt="Graph showing parking detection trends" />
+                    <img src="graph.png" alt="Graph showing parking detection trends" />
                 </div>
             </div>
-        </main>
+        </div>
+
+        <!-- "View Feed" Button in the middle and lower -->
+        <a href="toggleindex.html" class="view-feed-btn">View Feed</a>
+
     </div>
-    <script src="static/scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
