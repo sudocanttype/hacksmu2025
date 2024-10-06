@@ -9,16 +9,12 @@
 
 body {
     font-family: 'Red Hat Display', sans-serif;
-    height: 100vh;  /* Full viewport height */
+    height: 100vh;
     background-image: url('car_parking.jpg'); /* Background image */
     background-size: cover;
     background-position: center;
-    color: white; /* All text will be white */
+    color: white;
     position: relative;
-    overflow: hidden;  /* Prevent scrolling */
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .overlay {
@@ -40,11 +36,20 @@ body {
     padding-top: 80px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    height: 100%;  /* Ensure content fits within the viewport */
-    box-sizing: border-box;
-    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+/* New container for moving up the table and graph */
+.dashboard-container {
+    position: relative;
+    top: -50px;  /* Move the container up */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 header {
@@ -134,4 +139,25 @@ tbody tr:nth-child(odd) td {
 
 tbody tr:hover {
     background-color: #D3D3D3; /* Lighter grey on hover */
+}
+
+/* View Feed Button */
+.view-feed-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);  /* Center the button horizontally */
+    background-color: #04101c; /* Navy blue background */
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-feed-btn:hover {
+    background-color: #2161a0;  /* Darker navy on hover */
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.25);
 }
