@@ -1,11 +1,13 @@
 import cv2
-from propelauth_flask import init_auth, current_user
+from dotenv import load_dotenv
 
+from propelauth_flask import init_auth, current_user
 from flask import Flask, render_template, Response
 #
 #
 app = Flask(__name__)
-auth = init_auth("https://53997336.propelauthtest.com", "6071db731eb1f217857ddbc8a946da56e77696b19bd6df71c12db569001d9428c052534989d8874124116fa5f86ff19e")
+auth = init_auth("https://53997336.propelauthtest.com", os.environ.get("PROPEL_KEY"))
+GPT_KEY = os.environ.get("GPT_KEY")
 
 #
 #
@@ -43,7 +45,8 @@ def fetch_c2_data():
         'objects_in_spot': []
 
     }
-#
+
+
 @app.route('/')
 def welcome():
     return render_template('index.html')
