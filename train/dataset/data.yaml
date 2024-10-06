@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['car-handicap-placard']
+
+roboflow:
+  workspace: placard-detection
+  project: handicap-placard-detection
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/placard-detection/handicap-placard-detection/dataset/1

@@ -1,0 +1,5 @@
+train: /home/ken/source/hacksmu/dataset/aug_train/images
+val: /home/ken/source/hacksmu/dataset/valid
+test: /home/ken/source/hacksmu/dataset/test
+nc: 1
+names: ['ISA']
