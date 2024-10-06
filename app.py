@@ -1,10 +1,12 @@
 import cv2
+import os
 from dotenv import load_dotenv
 
 from propelauth_flask import init_auth, current_user
 from flask import Flask, render_template, Response
 #
 #
+load_dotenv(".env")
 app = Flask(__name__)
 auth = init_auth("https://53997336.propelauthtest.com", os.environ.get("PROPEL_KEY"))
 GPT_KEY = os.environ.get("GPT_KEY")
@@ -48,9 +50,13 @@ def fetch_c2_data():
 
 
 @app.route('/')
-def welcome():
-    return render_template('index.html')
+def index():
+    return render_template('handicap.html')
 #
+@app.route('/parking')
+def parking():
+    return render_template('parking.html')
+
 @app.route("/api/whoami")
 @auth.require_user
 def who_am_i():

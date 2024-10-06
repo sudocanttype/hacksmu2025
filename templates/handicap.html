@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='handicap.css') }}">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__logo">Disabiligent</div>
+        <nav class="nav">
+            <ul class="nav__list">
+                    <div class="switch-icon">
+                        <svg width="20px" height="20px" viewBox="-1.6 -1.6 19.20 19.20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#bebebe"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.256"></g><g id="SVGRepo_iconCarrier"> <path d="M13 1.5C13 2.32843 12.3284 3 11.5 3C10.6716 3 10 2.32843 10 1.5C10 0.671573 10.6716 0 11.5 0C12.3284 0 13 0.671573 13 1.5Z" fill="#bebebe"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.22092 3.12438C5.5652 2.99324 4.88732 3.19848 4.41448 3.67133L2.79291 5.2929L4.20712 6.70711L5.82869 5.08554L7.30925 5.38165L5.59412 8.02034C3.57561 8.22375 2 9.92787 2 12C2 14.2091 3.79086 16 6 16C8.20914 16 10 14.2091 10 12C10 11.6547 9.95625 11.3197 9.874 11.0001H11.9692L10.9692 15.0001H13.0308L13.9095 11.4851C14.2251 10.2228 13.2704 9.00006 11.9692 9.00006H8.92066L11.3193 5.57346L10.6961 4.01942L6.22092 3.12438ZM6 14C7.10457 14 8 13.1046 8 12C8 10.8954 7.10457 10 6 10C4.89543 10 4 10.8954 4 12C4 13.1046 4.89543 14 6 14Z" fill="#bebebe"></path> </g></svg>
+                    </div>
+                    <label class="switch">
+                    <input type="checkbox" id="toggleSwitch">
+                    <span class="slider"></span>
+                    </label>
+                    <div class="switch-icon">
+                        <svg fill="#bebebe" width="25px" height="25px" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" stroke="#bebebe"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M13,7H10A1,1,0,0,0,9,8v8a1,1,0,0,0,2,0V14h2a3,3,0,0,0,3-3V10A3,3,0,0,0,13,7Zm1,4a1,1,0,0,1-1,1H11V9h2a1,1,0,0,1,1,1ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"></path></g></svg>
+                    </div>
+
+                <script src="{{ url_for('static', filename='handicap.css') }}"></script>
+            </ul>
+        </nav>
+    </header>
+    <img id="bg" src="{{ url_for('static', filename='bg.jpg') }}">
+        <section class="intro">
+            <h1 class="intro__title">AI vehicle disability marking detection with dynamic parking data delivery.</h1>
+        </section>
+
+        <section class="features">
+            <div id="livefeed-container">
+                <div id="livefeed">
+                    <div id="text-container">
+                        <h2 class="grid__title">Live Feed</h2>
+                        <p class="grid__text">Detecting handicap placards.</p>
+                    </div>
+                    <div id="img-container">
+                        <img id="default-img" src="{{ url_for('video_feed') }}">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">Helping the disabled.</p>
+    </footer>
+
+</body>
+</html>
