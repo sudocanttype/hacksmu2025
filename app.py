@@ -4,10 +4,19 @@ from dotenv import load_dotenv
 
 from propelauth_flask import init_auth, current_user
 from flask import Flask, render_template, Response
+from flask_socketio import SocketIO, emit
+
+from flask_cors import CORS
+
+import C1
 #
 #
 load_dotenv(".env")
 app = Flask(__name__)
+# CORS(app, resources={r"/*": {"origins": ["http://localhost:5000", "http://your-other-domain.com"]}})
+CORS(app)
+socketio = SocketIO(app)
+
 auth = init_auth("https://53997336.propelauthtest.com", os.environ.get("PROPEL_KEY"))
 GPT_KEY = os.environ.get("GPT_KEY")
 
@@ -69,11 +78,25 @@ def comprehensiveindex():
 def togglestyles():
     return render_template('toggleindex.html')
 
+
+@socketio.on('offer')
+def handle_offer(offer):
+    # Broadcast the received offer to all clients except the sender
+    emit('offer', offer, broadcast=True, include_self=False)
+
+@socketio.on('answer')
+def handle_answer(answer):
+    emit('answer', answer, broadcast=True, include_self=False)
+
+@socketio.on('candidate')
+def handle_candidate(candidate):
+    emit('candidate', candidate, broadcast=True, include_self=False)
+
+
 @app.route("/api/whoami")
 @auth.require_user
 def who_am_i():
     return {"user_id": current_user.user_id}
-
 
 if __name__ == '__main__':
     app.run(debug=True, threaded=True)

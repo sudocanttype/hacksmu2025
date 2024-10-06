@@ -1,11 +1,14 @@
 from openai import OpenAI
 import base64
 import json
+import os
+from dotenv import load_dotenv
 
-client = OpenAI(api_key=os.environ.get("GPT_KEY")
+load_dotenv(".env")
+client = OpenAI(api_key=os.environ.get("GPT_KEY"))
 
 
-def c1(file)
+def c1(file):
     encoded_string = ""
     with open(file, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read())
