@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkHub ISA Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hey Manager!</h1>
+            <p>Here's how the parking for handicapped drivers has been over the past few months.</p>
+            <p>Check out the recent detection of ISA signs in parking areas.</p>
+        </header>
+
+        <main>
+            <div class="dashboard">
+                <div class="table-section">
+                    <h2>Handicapped Parking Activity</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th>ISA Signs Detected</th>
+                                <th>Action Taken</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-10-01</td>
+                                <td>Lot A - Downtown</td>
+                                <td>5</td>
+                                <td>Confirmed</td>
+                            </tr>
+                            <tr>
+                                <td>2024-09-25</td>
+                                <td>Lot B - Stadium</td>
+                                <td>3</td>
+                                <td>Pending</td>
+                            </tr>
+                            <tr>
+                                <td>2024-09-10</td>
+                                <td>Lot C - Mall</td>
+                                <td>7</td>
+                                <td>Confirmed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="graph-section">
+                    <h2>Parking Detection Trend</h2>
+                    <img src="fake-graph.png" alt="Graph showing parking detection trends" />
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

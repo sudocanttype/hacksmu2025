@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background:  #D35400;  /* Correct diagonal gradient */
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #001f3f;  /* Dark navy blue text */
+}
+
+.container {
+    width: 80%;
+    margin: 60px 0 0 20px;  /* Move the content closer to the top and left */
+}
+
+header {
+    text-align: left;  /* Left align the header */
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 80px;  /* Larger heading */
+    color: #FFF;  /* White for the heading text */
+    margin-top: 0;  /* Remove unnecessary top margin */
+}
+
+header p {
+    font-size: 20px;
+    color: #001f3f;  /* Dark navy blue text for description */
+    margin-top: 10px; /* Add some margin to separate from the heading */
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.table-section {
+    width: 60%;
+}
+
+.table-section h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #001f3f;  /* Dark navy blue heading for table */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 10px;  /* Rounded corners */
+    overflow: hidden;    /* Ensures border-radius is applied correctly */
+    background-color: #FFF;  /* White table background */
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #001f3f;  /* Dark navy blue background for headers */
+    color: white;
+}
+
+td {
+    background-color: #FBF6F0;  /* Light off-white for table data */
+    color: #001f3f;  /* Dark navy blue text */
+}
+
+.graph-section {
+    width: 35%;
+    text-align: center;
+}
+
+.graph-section img {
+    width: 100%;
+    border-radius: 10px;  /* Rounded corners for image */
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.graph-section h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #001f3f;  /* Dark navy blue heading for graph section */
+}
