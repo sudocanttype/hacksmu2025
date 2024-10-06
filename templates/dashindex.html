@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParkHub ISA Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashstyles.css') }}">
 </head>
 <body>
     <div class="container">
@@ -57,6 +57,6 @@
             </div>
         </main>
     </div>
-    <script src="scripts.js"></script>
+    <script src="{{ url_for('static', filename='dashscript.js') }}"></script>
 </body>
 </html>
