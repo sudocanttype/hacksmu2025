@@ -51,11 +51,23 @@ def fetch_c2_data():
 
 @app.route('/')
 def index():
-    return render_template('handicap.html')
+    return render_template('dashindex.html')
 #
 @app.route('/parking')
 def parking():
     return render_template('parking.html')
+
+@app.route('/dash')
+def handicap():
+    return render_template('handicap.html')
+
+@app.route('/comprehensiveindex')
+def comprehensiveindex():
+    return render_template('comprehensiveindex.html')
+
+@app.route('/toggleindex')
+def togglestyles():
+    return render_template('toggleindex.html')
 
 @app.route("/api/whoami")
 @auth.require_user
