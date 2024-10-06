@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParkHub ISA Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='dashstyles.css') }}">
+    <link rel="stylesheet" href="dashstyles.css">
 </head>
 <body>
+    <div class="overlay"></div>
     <div class="container">
         <header>
-            <h1>Hey Manager!</h1>
+            <h1>Hey, Manager!</h1>
             <p>Here's how the parking for handicapped drivers has been over the past few months.</p>
             <p>Check out the recent detection of ISA signs in parking areas.</p>
         </header>
@@ -27,7 +28,7 @@
                                 <th>Action Taken</th>
                             </tr>
                         </thead>
-                        <tbody>
+                    <tbody>
                             <tr>
                                 <td>2024-10-01</td>
                                 <td>Lot A - Downtown</td>
@@ -36,8 +37,8 @@
                             </tr>
                             <tr>
                                 <td>2024-09-25</td>
-                                <td>Lot B - Stadium</td>
-                                <td>3</td>
+                            <td>Lot B - Stadium</td>
+                            <td>3</td>
                                 <td>Pending</td>
                             </tr>
                             <tr>
@@ -46,17 +47,18 @@
                                 <td>7</td>
                                 <td>Confirmed</td>
                             </tr>
-                        </tbody>
+                    </tbody>
                     </table>
                 </div>
 
                 <div class="graph-section">
                     <h2>Parking Detection Trend</h2>
-                    <img src="fake-graph.png" alt="Graph showing parking detection trends" />
+                    <img src="graph.png" alt="Graph showing parking detection trends" />
                 </div>
             </div>
         </main>
     </div>
-    <script src="{{ url_for('static', filename='dashscript.js') }}"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
+
